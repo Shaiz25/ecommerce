@@ -6,6 +6,8 @@ export default defineConfig({
 	plugins: [react(),tailwindcss()],
 	
 	server: {
+		host: '0.0.0.0',
+    port: parseInt(process.env.PORT) || 3000,
 		proxy: {
 			"/api": {
 				target: "http://localhost:5000",
@@ -13,7 +15,4 @@ export default defineConfig({
 			},
 		},
 	},
-	 build: {
-    outDir: 'dist', // Optional: specify if framework/tool expects this
-  }
 });
